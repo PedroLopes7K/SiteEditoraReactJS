@@ -20,6 +20,7 @@ class App extends Component {
   async componentDidMount() {
     try {
       const { data: livros } = await axios.get('/api/todosOsLivros.json')
+      console.log(livros)
       this.setState({ livros })
     } catch (error) {
       console.log(error)
@@ -35,43 +36,45 @@ class App extends Component {
   render() {
     return (
       <Router>
-        {/* <> */}
-
         <Topo />
 
         <Routes>
-          <Route path="/" element={<Home livros={this.state.livros} />} />
+          <Route exact path="/" element={<Home livros={this.state.livros} />} />
           <Route
+            exact
             path="/frontend"
             element={<Frontend livros={this.state.livros} />}
           />
           <Route
+            exact
             path="/programacao"
             element={<Programacao livros={this.state.livros} />}
           />
           <Route
+            exact
             path="/design"
             element={<Design livros={this.state.livros} />}
           />
           <Route
+            exact
             path="/catalogo"
             element={<Catalogo livros={this.state.livros} />}
           />
           <Route
-            path="/livro/:livroSlug"
-            element={props => {
-              const livro = this.state.livros.find(
-                livro => livro.slug === props.match.params.livroSlug
-              )
-
-              if (livro) return <Livro livro={livro} />
-              else return <Notfound />
-            }}
+            exact
+            path="/livro/:slug"
+            element={<Livro />}
+            // element={props => {
+            //   const livro = this.state.livros.find(
+            //     livro => livro.slug === props.match.params.slug
+            //   )
+            //   if (livro) return <Livro livro={livro} />
+            //   else return <Notfound />
+            // }}
           />
           <Route component={Notfound} />
         </Routes>
         <Rodape />
-        {/* </> */}
       </Router>
     )
   }
