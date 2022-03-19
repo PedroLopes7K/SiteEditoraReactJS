@@ -1,7 +1,3 @@
-// import logo from './logo.svg'
-// import React, { Fragment } from 'react'
-// import Logo from './Components/Logo'
-// import Navegacao from './Components/Navegacao'
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Topo from './Components/Topo'
@@ -15,8 +11,6 @@ import Rodape from './Components/Rodape'
 import './index.css'
 import Livro from './Components/Livro'
 import axios from 'axios'
-
-// import Catalogo from './Components/Catalogo'
 
 class App extends Component {
   state = {
@@ -69,6 +63,7 @@ class App extends Component {
               const livro = this.state.livros.find(
                 livro => livro.slug === props.match.params.livroSlug
               )
+
               if (livro) return <Livro livro={livro} />
               else return <Notfound />
             }}

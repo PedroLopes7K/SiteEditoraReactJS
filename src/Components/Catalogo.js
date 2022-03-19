@@ -1,17 +1,39 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-export default function Catalogo() {
+export default function Catalogo({ livros }) {
   return (
     <main className="principal">
-      <h2>Catalogo de livros</h2>
-      <ul>
-        <li>
-          <a href="#">Livro 1</a>
-        </li>
-        <li>
-          <a href="#">Livro 2</a>
-        </li>
-      </ul>
+      <h2>Categoria Frontend</h2>
+      <ol>
+        {livros
+          .filter(livro => livro.categoria === 'frontend')
+          .map(livro => (
+            <li key={livro.id}>
+              <Link to={`/livro/${livro.slug}`}> {livro.titulo} </Link>
+            </li>
+          ))}
+      </ol>
+      <h2>Categoria Programacao</h2>
+      <ol>
+        {livros
+          .filter(livro => livro.categoria === 'programacao')
+          .map(livro => (
+            <li key={livro.id}>
+              <Link to={`/livro/${livro.slug}`}> {livro.titulo} </Link>
+            </li>
+          ))}
+      </ol>
+      <h2>Categoria Design</h2>
+      <ol>
+        {livros
+          .filter(livro => livro.categoria === 'design')
+          .map(livro => (
+            <li key={livro.id}>
+              <Link to={`/livro/${livro.slug}`}> {livro.titulo} </Link>
+            </li>
+          ))}
+      </ol>
     </main>
   )
 }
