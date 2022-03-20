@@ -1,11 +1,13 @@
 // import axios from 'axios'
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
+import Notfound from './Notfound'
 
 export default function Livro() {
   const { slug } = useParams()
   const [book, setBook] = useState([])
   const [books, setBooks] = useState([])
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     function loadBook() {
@@ -15,14 +17,20 @@ export default function Livro() {
       // console.log(books)
 
       for (let i = 0; i < books.length; i++) {
-        if (books[i].slug == slug) {
+        if (books[i].slug === slug) {
           setBook(books[i])
+          setLoading(false)
+          return
         }
       }
     }
 
     loadBook()
   })
+
+  if (loading === true) {
+    return <Notfound />
+  }
 
   return (
     <main className="principal">
