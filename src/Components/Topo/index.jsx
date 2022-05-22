@@ -1,6 +1,6 @@
 import React from 'react'
-import Navegacao from './Navegacao'
-import Logo from './Logo'
+import Navegacao from '../Navegacao'
+import Logo from '../Logo'
 
 export default function Topo() {
   return (

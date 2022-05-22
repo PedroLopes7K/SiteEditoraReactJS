@@ -30,10 +30,6 @@ export default function Frontend({ livros }) {
               ))}
           </div>
         ))}
-      {/* <h2>Categoria Frontend</h2>
-      <div className="card">
-        <p>Conteúdos de frontend</p>
-      </div> */}
     </main>
   )
 }

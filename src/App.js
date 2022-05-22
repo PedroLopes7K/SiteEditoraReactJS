@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+// import Topo from './Components/Topo'
 import Topo from './Components/Topo'
 import Home from './Components/Home'
 import Frontend from './Components/Frontend'
@@ -24,23 +25,6 @@ function App() {
       })
   }, [])
 
-  // async componentDidMount() {
-  //   try {
-  //     const { data: livros } = await axios.get('/api/todosOsLivros.json')
-  //     console.log(livros)
-  //     this.setState({ livros })
-  //   } catch (error) {
-  //     console.log(error)
-  //     document
-  //       .querySelectorAll('.principal')[0]
-  //       .insertAdjacentHTML(
-  //         'beforeend',
-  //         "<p class 'erro' > Mensagem de erro </p>"
-  //       )
-  //   }
-  // }
-
-  // render() {
   return (
     <Router>
       <Topo />
@@ -55,24 +39,12 @@ function App() {
         />
         <Route exact path="/design" element={<Design livros={livros} />} />
         <Route exact path="/catalogo" element={<Catalogo livros={livros} />} />
-        <Route
-          exact
-          path="/livro/:slug"
-          element={<Livro />}
-          // element={props => {
-          //   const livro = this.state.livros.find(
-          //     livro => livro.slug === props.match.params.slug
-          //   )
-          //   if (livro) return <Livro livro={livro} />
-          //   else return <Notfound />
-          // }}
-        />
+        <Route exact path="/livro/:slug" element={<Livro />} />
         <Route component={Notfound} />
       </Routes>
       <Rodape />
     </Router>
   )
 }
-// }
 
 export default App

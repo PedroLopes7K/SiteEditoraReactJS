@@ -119,6 +119,24 @@ ul {
   display: flex;
   flex-direction: column;
 }
+.linkBook {
+  margin: 10px;
+  font-size: 18px;
+}
+.Link {
+  width: 80px;
+  padding: 4px;
+ text-align: center;
+  margin: 10px 15px ;
+  background-color: #027399;
+  border-radius: 5px;
+  
+}
+#Lhome {
+  
+  font-size: 18px;
+  color: white;
+}
 .rodape {
   margin-top: 4px;
 }

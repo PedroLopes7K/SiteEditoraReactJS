@@ -1,7 +1,8 @@
 // import axios from 'axios'
 import React, { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
-import Notfound from './Notfound'
+import { useParams, Link } from 'react-router-dom'
+import Notfound from '../Notfound'
+// import '../index.css'
 
 export default function Livro() {
   const { slug } = useParams()
@@ -52,33 +53,14 @@ export default function Livro() {
           <hr />
           <h3>Descrição do livro</h3>
           <p>{book.descricao}</p>
+          
         </div>
+        <div className="Link">
+            <Link to={'/'} id="Lhome">
+              Voltar
+            </Link>
+          </div>
       </div>
     </main>
   )
 }
-
-// <main className="principal">
-
-{
-  // <main className="Principal">
-  /* <div className="pag-livro">
-      <h2>{livro.titulo}</h2>
-      <div className="livro">
-        <img
-          src={'/imagens/capas/' + livro.id + ' .jpg'}
-          alt="Thumbnail da capa do livro"
-        />
-        <ul>
-          <li>ISBN: {livro.isbn}</li>
-          <li>Ano: {livro.ano}</li>
-          <li>Páginas: {livro.paginas}</li>
-          <li>Preço: {livro.preco},00</li>
-        </ul>
-        <hr />
-        <h3>Descrição do livro</h3>
-        <p>{livro.descricao}</p>
-      </div>
-    </div> */
-}
-// </main>
