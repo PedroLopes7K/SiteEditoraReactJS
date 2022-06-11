@@ -18,15 +18,22 @@ export default function Frontend({ livros }) {
             {livros
               .filter(c => c.slug === livro.slug)
               .map(livro => (
-                <Link to={`/livro/${livro.slug}`} key={livro.id}>
-                  {
-                    <div className="detalhes">
-                      <h3>{livro.titulo}</h3>
-                      <p>{livro.descricao.slice(0, 130) + '...'}</p>
-                      <p>Leia mais &gt;</p>
-                    </div>
-                  }
+                <div key={livro.id} className="detalhes">
+                <h3>{livro.titulo}</h3>
+                <p>{livro.descricao.slice(0, 130) + '...'}</p>
+                <Link to={`/livro/${livro.slug}`} className="linkBook">
+                  Leia mais &gt;
                 </Link>
+              </div>
+                // <Link to={`/livro/${livro.slug}`} key={livro.id}>
+                //   {
+                //     <div className="detalhes">
+                //       <h3>{livro.titulo}</h3>
+                //       <p>{livro.descricao.slice(0, 130) + '...'}</p>
+                //       <p>Leia mais &gt;</p>
+                //     </div>
+                //   }
+                // </Link>
               ))}
           </div>
         ))}
